@@ -1,6 +1,6 @@
 import "font-awesome/css/font-awesome.min.css";
 import { useSelector,useDispatch } from "react-redux";
-import { toggleConfirmed } from "../redux/reducer/ToDoReducer";
+import { toggleConfirmed, removeData } from "../redux/reducer/ToDoReducer";
 import { useEffect, useState } from "react";
 
 export default function CardToDoList() {
@@ -12,6 +12,10 @@ export default function CardToDoList() {
   const handleCheckboxChange = (id) => {
     dispatch(toggleConfirmed( id ));
   };
+
+  const handleDelete = (id) => {
+    dispatch(removeData(id))
+  }
 
   if (filters === 'done') {
     // Hanya tampilkan data yang 'confirmed' bernilai true
@@ -48,10 +52,10 @@ export default function CardToDoList() {
                     </label>
                 </div>
                 <div className="btn-group">
-                    <button type="button" className="btn btn-sm btn-primary mx-2">
+                    <button type="button" className="btn btn-sm btn-primary mx-2" >
                     <i className="fa fa-pencil" aria-hidden="true"></i>
                     </button>
-                    <button type="button" className="btn btn-sm btn-danger">
+                    <button type="button" className="btn btn-sm btn-danger" onClick={ () => handleDelete(item.id) }>
                     <i className="fa fa-trash-o" aria-hidden="true"></i>
                     </button>
                 </div>

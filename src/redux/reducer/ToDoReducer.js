@@ -29,11 +29,15 @@ export const toDoReducer = createSlice({
         });
         state.data = updatedData;
       },
+      removeData: (state, action) => {
+        const idToRemove = action.payload;
+        state.data = state.data.filter(item => item.id !== idToRemove);
+      },
 
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addData, setFilter, toggleConfirmed } = toDoReducer.actions
+export const { addData, setFilter, toggleConfirmed, removeData } = toDoReducer.actions
 
 export default toDoReducer.reducer
