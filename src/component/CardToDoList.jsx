@@ -47,9 +47,9 @@ export default function CardToDoList() {
                     checked={item.confirmed}
                     onChange={()=>handleCheckboxChange(item.id)}
                     />
-                    <label className="form-check-label" htmlFor="todoCheck">
-                    {item.todo}
-                    </label>
+                    <span className="form-check-label" htmlFor="todoCheck" style={item.confirmed ? {textDecoration: "line-through"}: {} }>
+                        {item.todo}
+                    </span>
                 </div>
                 <div className="btn-group">
                     <button type="button" className="btn btn-sm btn-primary mx-2" >
