@@ -30,8 +30,8 @@ export const toDoReducer = createSlice({
         state.data = updatedData;
       },
       removeData: (state, action) => {
-        const idToRemove = action.payload;
-        state.data = state.data.filter(item => item.id !== idToRemove);
+        const idRemove = action.payload;
+        state.data = state.data.filter(item => item.id !== idRemove);
       },
 
   },

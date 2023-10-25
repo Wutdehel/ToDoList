@@ -13,7 +13,12 @@ export default function ToDoListInput() {
     const handlerSubmit = (e) => {
         e.preventDefault();
         const id = Date.now();
+        const validateWhiteSpace = todo.trim()
         if (!todo) return;
+        if (!validateWhiteSpace) {
+            setTodo("")
+            return
+        };
 
         dispatch(addData({ id, todo, confirmed: false }));
 
