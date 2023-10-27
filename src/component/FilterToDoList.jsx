@@ -6,23 +6,6 @@ export default function FilterToDoList() {
     const filter = useSelector(state => state.data.filter);
     const dispatch = useDispatch();
 
-    // const handlerClick = (e) => {
-    //     switch (e) {
-    //         case "done":
-    //             setFilter(data.map(data => data.confirmed))
-    //             console.log(filter)
-    //             break;
-    //         case "undone":
-    //             setFilter(data.map(data => !data.confirmed))
-    //             console.log(filter)
-    //             break;
-    //         default:
-    //             setFilter(data)
-    //             console.log(filter)
-    //             break;
-    //     }
-    // }
-
     useState (()=>{
         console.log(filter)
     }, [])

@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  value: 0,
-}
-
 export const toDoReducer = createSlice({
   name: 'test',
   initialState: {
@@ -33,11 +29,18 @@ export const toDoReducer = createSlice({
         const idRemove = action.payload;
         state.data = state.data.filter(item => item.id !== idRemove);
       },
+      editData: (state, action) => {
+        const { id, todo } = action.payload; // Ambil ID dan data input dari action payload
+        const index = state.data.findIndex(item => item.id === id);
+        if (index !== -1) {
+          state.data[index].todo = todo; // Ubah nilai 'todo' sesuai dengan input
+        }
+      },
 
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addData, setFilter, toggleConfirmed, removeData } = toDoReducer.actions
+export const { addData, setFilter, toggleConfirmed, removeData, editData } = toDoReducer.actions
 
 export default toDoReducer.reducer
