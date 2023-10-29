@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useDispatch } from "react-redux";
-import { editData } from "../redux/reducer/ToDoReducer";
+import { putTodo } from "../../services/Todo";
 
 function EditModal(props) {
 
-  const { data, onHide } = props;
+  const { data, onHide, onDataUpdated } = props;
 
   const [todo, setTodo] = useState("");
   
-  console.log(data.id)
-  const dispatch = useDispatch()
-
   const handlerSubmit = (e) => {
     e.preventDefault();
 
@@ -23,9 +19,16 @@ function EditModal(props) {
         return
     };
 
-    dispatch(editData({id: data.id, todo: todo}));
-    onHide();
-    setTodo('')
+    putTodo(data.id, todo)
+        .then(() => {
+          onHide();
+          onDataUpdated();
+          setTodo('')
+        })
+        .catch((error) => {
+            console.error('Gagal memperbarui data:', error);
+        });
+    // dispatch(editData({id: data.id, todo: todo}));
   }
 
 

@@ -1,18 +1,12 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
-import { addData } from "../redux/reducer/ToDoReducer";
+import { postCreateTodo } from "../../services/Todo";
 
-export default function ToDoListInput() {
+
+export default function ToDoListInput({ fetchTodos }) {
     const [todo,setTodo] = useState("")
-    const dispatch = useDispatch()
-    const testing = useSelector(state => state.data.data)
 
-    // useEffect(()=>{
-    //     console.log(testing)
-    // }, [testing])
-    const handlerSubmit = (e) => {
+    const handlerSubmit = async (e) => {
         e.preventDefault();
-        const id = Date.now();
         const validateWhiteSpace = todo.trim()
         if (!todo) return;
         if (!validateWhiteSpace) {
@@ -20,8 +14,18 @@ export default function ToDoListInput() {
             return
         };
 
-        dispatch(addData({ id, todo, confirmed: false }));
+        const data = {
+            todo: todo,
+            checked: false,
+            createAt: Date.now()
+        } 
 
+        const resCreateProduct = await postCreateTodo(data);
+        if (resCreateProduct) {
+            fetchTodos()
+            console.log("dapat")
+        }
+        
         setTodo("")
     }
     return (
