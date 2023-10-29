@@ -60,7 +60,7 @@ export default function CardToDoList({ todos, fetchTodos }) {
           { alert }
         </p>
       ) : (
-        todos.map((item) => {
+        filtered.map((item) => {
           return (
             <div
               className="col-md-6 card mb-2 px-2 d-flex justify-content-center"
