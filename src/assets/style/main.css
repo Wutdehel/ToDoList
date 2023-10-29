@@ -1,3 +1,69 @@
-.column {
-    flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --font: 'Poppins', sans-serif;
+    --textColor: #54a094;
+    --primaryColor: #216069;
+    --secondaryColor: #37928d;
+    
+}
+
+body {
+    background-color: #161928;
+    font-family: var(--font);
+}
+
+h1 {
+    color: var(--textColor);
+}
+
+h2 {
+    color: var(--secondaryColor);
+}
+
+#todo {
+    background-color: var(--secondaryColor);
+    border: none;
+    border-radius: 13px;
+}
+
+.send {
+    background-color: var(--primaryColor);
+    border: var(--primaryColor);
+    border-radius: 12px;
+}
+
+
+
+.send:hover {
+    background-color: var(--secondaryColor);
+    
+}
+
+.btn-disabled {
+    background-color: var(--primaryColor);
+    color: #161928;
+}
+
+.btn-warning {
+    background-color: var(--secondaryColor);
+    border: var(--secondaryColor);
+    color: aliceblue;
+}
+
+.btn-warning:hover {
+    background-color: var(--primaryColor);
+}
+
+.btn-disabled:hover {
+    background-color: var(--primaryColor);
+}
+
+p {
+    color: var(--textColor);
+}
+
+.mapping {
+    color: var(--textColor);
+    background-color: var(--primaryColor);
 }

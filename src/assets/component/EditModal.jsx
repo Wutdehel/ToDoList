@@ -54,7 +54,7 @@ function EditModal(props) {
               value={todo}
               onChange={(e) => setTodo(e.target.value)}
             />
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary send">
               Send
             </button>
           </div>

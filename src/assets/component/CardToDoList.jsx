@@ -23,7 +23,7 @@ export default function CardToDoList({ todos, fetchTodos }) {
   
   if (filters === "done") {
     filtered = todos.filter((item) => item.checked);
-    alert = "Dang, Nothing Done, Keep it up";
+    alert = "Dang, Nothing Done, Keep it up!!";
   } else if (filters === "undone") {
     filtered = todos.filter((item) => !item.checked);
     alert = "Everything that you list has been done, Well done :)";
@@ -63,7 +63,7 @@ export default function CardToDoList({ todos, fetchTodos }) {
         filtered.map((item) => {
           return (
             <div
-              className="col-md-6 card mb-2 px-2 d-flex justify-content-center"
+              className="col-sm-6 card mb-2 mx-3 px-2 d-flex justify-content-center mapping"
               key={item.id}
             >
               <div className="card-body d-flex justify-content-between">
